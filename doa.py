@@ -18,7 +18,7 @@ if dev:
             print(prev_reading, Mic_tuning.direction)
             time.sleep(1)
 
-            if Mic_tuning.direction > prev_reading + 3 or Mic_tuning.direction < prev_reading - 3:
+            if Mic_tuning.direction != prev_reading and Mic_tuning.direction < 180:
                 sio.emit('my_message', {'doa': Mic_tuning.direction})
                 print('emitted doa : ', Mic_tuning.direction)
         # while True:
