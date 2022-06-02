@@ -41,8 +41,8 @@ if dev:
 
     while True:
         try:
-            with open('/var/www/html/data.csv', 'a') as datafile:
-                datafile.write(str(Mic_tuning.direction) + "\n")
+            # with open('/var/www/html/data.csv', 'a') as datafile:
+            #     datafile.write(str(Mic_tuning.direction) + "\n")
             # print(Mic_tuning.direction)
             # readings[0] = {'doa': Mic_tuning.direction}
             # print(readings)
