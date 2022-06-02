@@ -15,10 +15,10 @@ if dev:
     def send_sensor_readings():
         while True:
             prev_reading = Mic_tuning.direction
-            print(prev_reading, Mic_tuning.direction)
-            time.sleep(1)
+            # print(prev_reading, Mic_tuning.direction)
+            # time.sleep(1)
 
-            if Mic_tuning.direction != prev_reading and Mic_tuning.direction < 180:
+            if Mic_tuning.direction != prev_reading and Mic_tuning.direction < 200:
                 sio.emit('my_message', {'doa': Mic_tuning.direction})
                 print('emitted doa : ', Mic_tuning.direction)
         # while True:
@@ -36,13 +36,13 @@ if dev:
         print('disconnected from server')
         sio.emit('disconnect', {'connection': 'false'})
 
-    sio.connect('http://192.168.50.106:5000',
+    sio.connect('http://172.20.10.4:5000',
                 headers={'device_id': 'raspberrypi'})
 
     while True:
         try:
-            # with open('/var/www/html/data.csv', 'a') as datafile:
-            #     datafile.write(str(Mic_tuning.direction) + "\n")
+            with open('/var/www/html/data.csv', 'a') as datafile:
+                datafile.write(str(Mic_tuning.direction) + "\n")
             # print(Mic_tuning.direction)
             # readings[0] = {'doa': Mic_tuning.direction}
             # print(readings)

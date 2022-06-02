@@ -7,7 +7,7 @@
 </head>
 <script>
     function connectPhidgets(){
-        fetch('http://192.168.50.106/data.csv') 
+        fetch('http://172.20.10.104/data.csv') 
         .then(response => response.text())
         .then(text => {
             var data = text.split("\n");
